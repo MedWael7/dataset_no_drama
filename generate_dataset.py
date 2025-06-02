@@ -386,17 +386,19 @@ class HotelReviewDatasetGenerator:
         ]
     
     def generate_review_text(self, aspects, problems):
-        """Generate natural review text like real booking.com/tripadvisor reviews"""
+        """Generate natural review text like real booking.com reviews"""
         if len(aspects) == 1:
             structure = random.choice(self.review_structures)
             return structure.format(aspect=aspects[0], problem=problems[0])
         else:
-            # For multiple aspects, create realistic multi-complaint reviews
+            # For multiple aspects, create realistic multi-complaint reviews like real booking sites
             review_parts = []
+            
+            # Realistic connectors used in actual reviews
             connectors = [
-                ". Also the ", ". Plus ", ". And don't get me started on ", 
-                ". The ", ". Not to mention ", ". To make matters worse, ",
-                ". Even worse, ", ". Additionally, ", ". Furthermore, "
+                " ", " The ", " Also ", " Also the ", " ", " Really the only thing ",
+                " To be really picky ", " ", " I thought that ", " ", " Would have liked ",
+                " ", " No ", " ", " Maybe the ", " ", " Just the ", " "
             ]
             
             # Start with first complaint
@@ -404,32 +406,34 @@ class HotelReviewDatasetGenerator:
             first_part = first_structure.format(aspect=aspects[0], problem=problems[0])
             review_parts.append(first_part)
             
-            # Add remaining complaints with connectors
+            # Add remaining complaints with realistic connectors
             for i in range(1, len(aspects)):
                 connector = random.choice(connectors)
-                complaint_templates = [
+                # More realistic complaint structures
+                complaint_structures = [
                     "{connector}{aspect} {problem}",
+                    "{connector}the {aspect} {problem}",
                     "{connector}{aspect} was {problem}",
-                    "{connector}{aspect} - {problem}"
+                    "{connector}{aspect} {problem} but not a big deal"
                 ]
-                template = random.choice(complaint_templates)
-                part = template.format(connector=connector, aspect=aspects[i], problem=problems[i])
+                structure = random.choice(complaint_structures)
+                part = structure.format(connector=connector, aspect=aspects[i], problem=problems[i])
                 review_parts.append(part)
             
             full_review = "".join(review_parts)
             
-            # Add occasional strong endings
-            endings = [
-                ". Never staying here again!",
-                ". Worst experience ever.",
-                ". Complete waste of money.",
-                ". Avoid at all costs!",
-                ". Don't make the same mistake I did.",
-                ""  # Most reviews don't have dramatic endings
+            # Add realistic but less dramatic endings occasionally
+            realistic_endings = [
+                " Will not go back here again",
+                " but not a massive deal though",
+                " Not a big deal but worth mentioning", 
+                " Otherwise everything was fine",
+                " Apart from that it was ok",
+                ""  # Most reviews don't have endings
             ]
             
-            if random.random() < 0.3:  # 30% chance of dramatic ending
-                full_review += random.choice(endings)
+            if random.random() < 0.15:  # 15% chance of realistic ending
+                full_review += random.choice(realistic_endings)
             
             return full_review
     
