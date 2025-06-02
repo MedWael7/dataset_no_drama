@@ -351,24 +351,52 @@ class HotelReviewDatasetGenerator:
         ]
     
     def generate_review_text(self, aspects, problems):
-        """Generate natural review text"""
+        """Generate natural review text like real booking.com/tripadvisor reviews"""
         if len(aspects) == 1:
             structure = random.choice(self.review_structures)
             return structure.format(aspect=aspects[0], problem=problems[0])
         else:
-            # For multiple aspects, create more complex reviews
+            # For multiple aspects, create realistic multi-complaint reviews
             review_parts = []
-            for i, (aspect, problem) in enumerate(zip(aspects, problems)):
-                if i == 0:
-                    structure = random.choice(self.review_structures)
-                    part = structure.format(aspect=aspect, problem=problem)
-                else:
-                    connectors = [" and ", " while ", " plus ", " also "]
-                    connector = random.choice(connectors)
-                    part = f"{connector}{aspect} with {problem}"
+            connectors = [
+                ". Also the ", ". Plus ", ". And don't get me started on ", 
+                ". The ", ". Not to mention ", ". To make matters worse, ",
+                ". Even worse, ", ". Additionally, ", ". Furthermore, "
+            ]
+            
+            # Start with first complaint
+            first_structure = random.choice(self.review_structures)
+            first_part = first_structure.format(aspect=aspects[0], problem=problems[0])
+            review_parts.append(first_part)
+            
+            # Add remaining complaints with connectors
+            for i in range(1, len(aspects)):
+                connector = random.choice(connectors)
+                complaint_templates = [
+                    "{connector}{aspect} {problem}",
+                    "{connector}{aspect} was {problem}",
+                    "{connector}{aspect} - {problem}"
+                ]
+                template = random.choice(complaint_templates)
+                part = template.format(connector=connector, aspect=aspects[i], problem=problems[i])
                 review_parts.append(part)
             
-            return "".join(review_parts)
+            full_review = "".join(review_parts)
+            
+            # Add occasional strong endings
+            endings = [
+                ". Never staying here again!",
+                ". Worst experience ever.",
+                ". Complete waste of money.",
+                ". Avoid at all costs!",
+                ". Don't make the same mistake I did.",
+                ""  # Most reviews don't have dramatic endings
+            ]
+            
+            if random.random() < 0.3:  # 30% chance of dramatic ending
+                full_review += random.choice(endings)
+            
+            return full_review
     
     def generate_balanced_dataset(self, total_reviews=750000):
         """Generate balanced dataset ensuring all aspects get fair representation"""
