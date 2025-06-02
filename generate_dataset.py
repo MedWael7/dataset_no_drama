@@ -14,7 +14,7 @@ class HotelReviewDatasetGenerator:
     def __init__(self):
         # Comprehensive aspect mapping with synonyms and variations
         self.aspect_mappings = {
-            "rooms": ["rooms", "room", "suite", "accommodation", "quarters"],
+            "rooms": ["rooms", "room", "suite", "accommodation", "quarters", "small room", "tiny room", "cramped room", "compact room"],
             "bathrooms": ["bathrooms", "bathroom", "restroom", "wc", "toilet", "washroom", "lavatory"],
             "shower": ["shower", "showers", "bathtub", "bath", "tub"],
             "bed": ["bed", "beds", "mattress", "bedding", "sleeping area"],
