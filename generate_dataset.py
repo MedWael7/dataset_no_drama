@@ -67,262 +67,212 @@ class HotelReviewDatasetGenerator:
             "noise": ["noise", "loud", "sounds", "disturbance", "racket"]
         }
         
-        # Problem templates for each aspect category - realistic like booking.com/tripadvisor
+        # Problem templates for each aspect category - REALISTIC like actual booking.com reviews
         self.problem_templates = {
             "rooms": [
-                "extremely small and cramped", "tiny with no space to move around", "so small you can barely fit luggage",
-                "claustrophobic and uncomfortable", "much smaller than advertised", "like a closet not a room",
-                "outdated furniture and decor", "musty smell that won't go away", "dark with terrible lighting",
-                "no storage space whatsoever", "walls paper-thin you hear everything", "dirty and poorly maintained",
-                "broken furniture everywhere", "stains on walls and ceiling", "feels like a prison cell"
+                "was very small", "was quite small for the price", "was really small", "was a bit small",
+                "was smaller than expected", "was too small", "felt cramped", "not much space",
+                "very basic compared to other hotels", "was old and dated", "needs updating",
+                "was not what we asked for", "furniture felt crammed in", "no storage space",
+                "was hot even when set at lowest temp", "was very cold", "needs a modern upgrade"
             ],
             "bathrooms": [
-                "shower head broken and leaking everywhere", "moldy tiles and disgusting grout", "toilet wouldn't flush properly",
-                "no hot water at all", "drain clogged and water backing up", "missing tiles and cracked surfaces",
-                "door doesn't lock or close properly", "ventilation broken so always humid", "hair from previous guests everywhere",
-                "dirty towels that smell terrible", "no soap or toiletries provided", "floor always wet and slippery"
+                "was quite small", "no privacy at all", "door doesn't close properly", "very small",
+                "had no bath", "drain was not functioning well", "needs updating", "was old",
+                "door doesn't lock", "very basic", "needs money spending on this",
+                "could do with updating", "plumbing could do with updating"
             ],
             "shower": [
-                "water pressure so weak it's useless", "scalding hot then freezing cold", "shower door completely broken",
-                "drain blocked so water floods bathroom", "shower head covered in mold", "no hot water after 5pm",
-                "ceiling leaking during shower", "slippery floor almost fell down", "rust stains everywhere",
-                "curtain moldy and disgusting", "takes forever to get warm water", "water smells like sewage"
+                "had poor water pressure", "lack of water pressure", "drain was blocked",
+                "was too small", "plumbing could do with updating", "needs updating",
+                "pressure was poor", "was very small", "drain not working properly"
             ],
             "bed": [
-                "mattress so old and lumpy couldn't sleep", "springs poking through everywhere", "sheets hadn't been changed dirty",
-                "bed so small two people don't fit", "squeaks loudly every time you move", "pillow flat as a pancake",
-                "bedding smells like cigarettes", "mattress stained and disgusting", "bed frame broken and wobbly",
-                "blankets thin and useless", "found hair and crumbs in sheets", "hardest mattress ever slept on"
+                "was not comfy", "was a bit hard", "was quite hard", "wasn't the most comfortable",
+                "was two singles pushed together", "had a gap in the centre", "was small and bit hard",
+                "was not comfortable", "was too small", "mattress was hard", "was uncomfortable"
             ],
             "carpet": [
-                "stained with God knows what", "sticky and gross to walk on", "smells terrible like old food",
-                "worn out with holes everywhere", "dirty and hasn't been cleaned in years", "loose and dangerous trip hazard",
-                "pet hair all over despite no pets allowed", "burn marks and cigarette stains", "wet in corners and moldy"
+                "was a bit tatty", "was very worn", "in the hallway was very worn", "was dirty",
+                "was old and dirty", "needs replacing", "was worn through", "was stained"
             ],
             "pillows": [
-                "flat and completely useless", "smells like someone else's head", "covered in stains",
-                "so hard it hurt my neck", "only one tiny pillow provided", "lumpy and uncomfortable",
-                "pillowcase dirty and hadn't been washed", "feathers poking through fabric", "way too small for bed"
+                "were too small", "were not comfortable", "were quite hard", "were flat",
+                "only one provided", "were old", "were uncomfortable"
             ],
             "blankets": [
-                "thin as paper no warmth at all", "dirty with mysterious stains", "smells like cigarettes and mold",
-                "torn and falling apart", "too small doesn't cover the bed", "scratchy and uncomfortable",
-                "hadn't been washed in forever", "holes throughout the fabric", "freezing cold all night"
+                "were thin", "were not warm enough", "were old", "didn't cover the bed properly",
+                "were uncomfortable", "were too small"
             ],
             "wifi": [
-                "doesn't work at all complete waste", "so slow couldn't load anything", "keeps disconnecting every 5 minutes",
-                "password doesn't work nobody knows it", "only works in lobby not rooms", "charged extra for terrible connection",
-                "signal so weak can't connect", "blocked all streaming services", "limited to 1 hour per day ridiculous"
+                "was very slow", "didn't work in the room", "sucks", "was poor",
+                "no free wifi in the room", "not available in rooms", "was terrible",
+                "keeps disconnecting", "signal was weak", "was unreliable"
             ],
             "elevator": [
-                "broken down for entire stay", "takes forever to arrive", "makes scary noises and shakes",
-                "stops working after 10pm", "dirty and smells terrible", "buttons don't work properly",
-                "gets stuck between floors", "too small for luggage", "lighting flickering and scary"
+                "was quite small", "was very small", "was slow", "only one working",
+                "was out of order", "barely room for two people", "was too small"
             ],
             "breakfast": [
-                "cold eggs and burnt toast", "ran out of everything by 8am", "terrible coffee tastes like water",
-                "same boring food every single day", "long queues and rude staff", "dirty plates and utensils",
-                "overpriced for what you get", "flies buzzing around food", "everything stale and old"
+                "was expensive", "was disappointing", "was not very good", "was ok but not excellent",
+                "could be included", "variety was poor", "quality was not good", "was overpriced",
+                "room was quite small", "limited options", "same options every day"
             ],
             "restaurant": [
-                "food took 2 hours to arrive", "overpriced and tastes awful", "rude waiters who ignore you",
-                "kitchen clearly dirty and unsanitary", "limited menu with no good options", "cold food served on dirty plates",
-                "ran out of half the menu items", "charged extra for everything", "worst meal of my life"
+                "was ok but not excellent", "service made several mistakes", "was average",
+                "food was ok for the price", "had slow service", "staff need to keep regular hours",
+                "no food available after 4pm", "was closed when needed"
             ],
             "lobby": [
-                "dirty and run down appearance", "broken furniture and torn seats", "smells like old carpet and mold",
-                "no air conditioning sweltering hot", "crowded with nowhere to sit", "staff ignoring everyone waiting",
-                "outdated and depressing atmosphere", "noisy and chaotic all the time", "dark with terrible lighting"
+                "was quite small", "was old and dated", "needs updating", "was run down",
+                "was crowded", "no seating available"
             ],
             "staff": [
-                "rude and completely unhelpful", "act like guests are bothering them", "don't speak English properly",
-                "never available when you need help", "promised things then never followed through", "argumentative when complained",
-                "clearly don't care about guest experience", "gave wrong information repeatedly", "discriminated against us obviously"
+                "was poor", "was rude and unfriendly", "was unhelpful", "couldn't find my booking",
+                "was non cooperative", "had poor attitude", "ignored us", "was unfriendly",
+                "manner was impolite", "one grumpy lady", "need better training", "was rude"
             ],
             "service": [
-                "worst customer service ever experienced", "nobody cares about guest problems", "took days to fix simple issues",
-                "promised call back never happened", "rude responses to valid complaints", "charge for everything including basic service",
-                "unprofessional attitude throughout stay", "felt like we were inconveniencing them", "no follow up on any requests"
+                "made several mistakes", "was poor", "was slow", "was disappointing",
+                "could be better", "was not helpful", "needs improvement"
             ],
             "cleaning": [
-                "room obviously hadn't been cleaned", "towels dirty and smelly", "bathroom disgusting with hair everywhere",
-                "trash not emptied for days", "bed sheets clearly used by previous guest", "dust and dirt all over surfaces",
-                "housekeeping never showed up", "cleaning supplies smell toxic", "missed obvious stains and mess"
+                "was poor", "room wasn't cleaned", "missed areas", "was not thorough",
+                "needs improvement", "housekeeping didn't come"
             ],
             "air_conditioning": [
-                "doesn't work stuck sweating all night", "makes horrible loud noise", "only blows hot air",
-                "remote control broken can't adjust", "leaking water all over floor", "turns off randomly during night",
-                "freezing cold can't turn it down", "smells moldy when turned on", "unit falling out of wall"
+                "didn't work", "was not good enough", "was too noisy", "couldn't control temperature",
+                "was probably broken", "kept starting in the night", "was very drying",
+                "couldn't make it stop", "remote didn't work", "wasn't working properly"
             ],
             "bar": [
-                "overpriced drinks taste watered down", "bartender rude and slow", "dirty glasses with lipstick stains",
-                "limited selection of cheap alcohol", "closed early without notice", "loud music you can't talk",
-                "sticky bar and dirty stools", "charged wrong amount several times", "worst cocktails ever tasted"
+                "no wine available", "was expensive", "room fridge not working", "limited selection",
+                "9 pounds for a glass of wine", "overpriced drinks", "closed early"
             ],
             "minibars": [
-                "doesn't work items warm", "ridiculously overpriced everything", "empty or broken items inside",
-                "charged for items we didn't take", "key doesn't work can't open", "moldy food inside expired products",
-                "no refund for broken minibar", "restocked with warm drinks", "locked and nobody has key"
+                "not restocked daily", "was empty", "no minibar available", "didn't work",
+                "no water available", "items were expensive"
             ],
             "food": [
-                "terrible quality tastes like cardboard", "clearly reheated frozen meals", "cold when served disgusting",
-                "overpriced for poor quality", "limited options all taste same", "food poisoning after eating here",
-                "clearly been sitting out too long", "no vegetarian options available", "worst food ever eaten"
+                "was ok but not more than average", "choice was limited", "was disappointing",
+                "quality was poor", "was overpriced", "no variety"
             ],
             "pizza": [
-                "cold and soggy crust", "toppings clearly old and cheap", "took over an hour to deliver",
-                "burnt bottom raw top", "sauce tastes like ketchup", "cheese plastic and fake",
-                "smallest pizza ever seen for price", "delivered to wrong room twice", "inedible threw it away"
+                "was average", "was overpriced", "took too long", "was disappointing"
             ],
             "drinks": [
-                "watered down and tasteless", "warm beer and flat soda", "limited selection only cheap brands",
-                "overcharged for everything", "rude service when ordering", "glasses dirty with fingerprints",
-                "took forever to get drinks", "wrong order multiple times", "charged for drinks we didn't order"
+                "were overpriced", "limited selection", "no wine in the bar", "were expensive"
             ],
             "juice": [
-                "clearly from concentrate tastes artificial", "warm and not refrigerated", "limited to only apple juice",
-                "overpriced small portions", "expired and tasted sour", "pulp and chunks floating around",
-                "served in dirty glasses", "ran out early in morning", "mixed with water tastes terrible"
+                "was limited", "only basic options", "was expensive", "not fresh"
             ],
             "guide": [
-                "didn't know basic information about area", "rude and impatient with questions", "clearly just wanted money",
-                "showed up late and unprepared", "poor English couldn't understand", "rushed through everything quickly",
-                "overcharged for terrible tour", "took us to wrong places", "cancelled last minute no refund"
+                "was not helpful", "didn't know the area", "was expensive", "poor service"
             ],
             "transport": [
-                "shuttle never showed up", "dirty van with broken seats", "driver rude and unsafe", 
-                "overcharged for short distance", "no air conditioning sweltering hot", "took forever unreliable schedule",
-                "van broke down left us stranded", "charged extra hidden fees", "worst transportation experience ever"
+                "taxi was expensive", "was a rip off", "driver didn't know directions",
+                "was overpriced", "shuttle was unreliable"
             ],
             "price": [
-                "ridiculously overpriced for what you get", "hidden fees added at checkout", "charged double what was advertised",
-                "not worth half the price paid", "found cheaper better hotels nearby", "felt completely ripped off",
-                "surprise charges on final bill", "poor value for money spent", "expensive everything including basic amenities"
+                "was expensive", "poor value for money", "not worth what we paid",
+                "was overpriced", "expensive for what you get"
             ],
             "expensiveness": [
-                "everything costs fortune here", "charged for wifi air conditioning everything", "most expensive terrible hotel ever",
-                "nickel and dimed for every little thing", "poor quality for premium prices", "tourist trap pricing scheme",
-                "rip off avoid at all costs", "overpriced mediocre experience", "expensive disappointing waste of money"
+                "everything was expensive", "was overpriced", "poor value", "too expensive"
             ],
             "kettle": [
-                "doesn't work completely broken", "dirty with lime scale buildup", "no coffee or tea provided",
-                "takes forever to boil water", "plastic taste in all water", "cord too short can't reach outlet",
-                "leaks water all over counter", "old and rusty inside", "missing parts doesn't function"
+                "no tea coffee making facilities", "was not working", "was old", "was broken"
             ],
             "pool": [
-                "closed for renovation without notice", "dirty water with floating debris", "overcrowded with screaming kids",
-                "no lifeguard on duty unsafe", "chlorine smell overwhelming", "slippery deck almost fell",
-                "too cold to swim in", "broken tiles cut my foot", "hours limited only open few hours"
+                "no swimming pool", "was too small", "was closed", "was not clean",
+                "hours were limited", "was overcrowded"
             ],
             "stairs": [
-                "poorly lit dangerous at night", "carpet loose and trip hazard", "broken handrail almost fell",
-                "dirty with stains and garbage", "steep and difficult to climb", "echo chamber every sound amplified",
-                "smells like urine and cigarettes", "paint peeling and looks terrible", "no elevator alternative only stairs"
+                "were steep and narrow", "carpet was worn", "were difficult to access",
+                "lighting was poor", "were not safe"
             ],
             "reception": [
-                "long queue waited hour to check in", "staff rude and unhelpful attitude", "lost our reservation completely",
-                "charged wrong amount argued with us", "gave wrong room keys twice", "no English speaking staff available",
-                "computer system down couldn't help", "ignored us while helping other guests", "worst first impression ever"
+                "staff couldn't find booking", "was slow", "couldn't help with early check in",
+                "staff was unable to find my booking", "no one picked up phone",
+                "computer system was down", "staff ignored us", "checkout was early"
             ],
             "view": [
-                "faces brick wall not ocean advertised", "construction site with constant noise", "garbage dumpster right outside window",
-                "completely blocked by other building", "dirty windows can't see anything", "false advertising in photos",
-                "parking lot view not cityscape promised", "air conditioning units blocking entire view", "terrible disappointing outlook"
+                "no view from room", "was of a brick wall", "was not nice", "was disappointing",
+                "was blocked", "faces main road", "was of parking lot", "room had no view"
             ],
             "extra_charges": [
-                "surprise fees not mentioned anywhere", "charged for basic amenities like towels", "resort fee added without explanation",
-                "parking costs more than room", "wifi internet access costs extra", "cleaning fee charged even though dirty",
-                "service charges added to everything", "tourist tax not mentioned when booking", "nickel and dimed constantly"
+                "parking was expensive", "hidden fees", "charged for everything",
+                "deposit not refunded", "extra costs not mentioned"
             ],
             "extra_fees": [
-                "hidden charges discovered at checkout", "charged for using safe in room", "additional person fee for child",
-                "early checkin late checkout fees", "baggage storage costs money", "pool towel rental fees ridiculous",
-                "breakfast charged separately not included", "air conditioning usage fee added", "telephone calls charged premium rates"
+                "safe box needs payment", "breakfast charged separately", "wifi costs extra",
+                "everything costs extra", "hidden charges"
             ],
             "water": [
-                "no hot water entire stay", "pressure so weak can't shower", "tastes terrible like chlorine",
-                "brown rusty color coming out", "turns cold after 2 minutes", "shut off randomly during shower",
-                "leaking faucets constant dripping noise", "smells like sewage when first turned on", "limited hours hot water only morning"
+                "no hot water", "pressure was poor", "was brown", "tasted bad",
+                "limited hot water", "kept running out"
             ],
             "temperature": [
-                "freezing cold couldn't get warm", "sweltering hot no air conditioning", "thermostat broken can't control",
-                "heating doesn't work at all", "too hot during day too cold night", "no fan or circulation",
-                "windows don't open stuffy air", "drafty cold air coming through gaps", "uncomfortable temperature entire stay"
+                "room was very hot", "was too cold", "couldn't control", "heating didn't work",
+                "was uncomfortable", "thermostat didn't work"
             ],
             "tv": [
-                "doesn't work black screen", "only 3 channels all static", "remote control missing batteries dead",
-                "tiny screen from 1990s", "no cable satellite basic channels only", "volume stuck on loud",
-                "screen cracked can't see properly", "turns off randomly during shows", "no english channels available"
+                "no English channels", "was very small", "was old", "channels were limited",
+                "didn't work properly", "was from the 1990s"
             ],
             "gym": [
-                "closed without notice sign on door", "equipment broken and dangerous", "dirty towels and equipment",
-                "too small only 2 machines", "no air conditioning sweltering hot", "limited hours only open mornings",
-                "machines don't work properly", "no water fountain or amenities", "smells terrible like sweat"
+                "was closed", "equipment was old", "was too small", "limited hours",
+                "was not available", "needs updating"
             ],
             "fitness": [
-                "equipment old and broken down", "weights missing and scattered", "machines don't work properly",
-                "dirty and unsanitary conditions", "no cleaning supplies or towels", "overcrowded can't use anything",
-                "poor ventilation smells horrible", "unsafe equipment falling apart", "limited selection outdated machines"
+                "equipment was broken", "was not available", "limited facilities",
+                "needs updating", "was disappointing"
             ],
             "window": [
-                "doesn't open stuck shut", "broken glass and cracks", "dirty can't see through",
-                "no screen bugs flying in", "faces noisy street no sleep", "blinds broken won't close",
-                "drafty cold air coming through", "paint peeling around frame", "too small for room size"
+                "single glazed", "curtain was damaged", "couldn't open", "was broken",
+                "cold air coming through", "needs double glazing"
             ],
             "smoke": [
-                "reeks of cigarettes despite non smoking", "smoke alarm going off constantly", "previous guests smoked heavily smell embedded",
-                "designated smoking area right outside window", "ventilation poor smoke lingers", "ashtrays dirty and overflowing",
-                "smoke smell in hallways elevators", "no smoking policy not enforced", "had to change rooms because smoke"
+                "smell in room", "from other rooms", "in hallways", "ventilation poor"
             ],
             "smell": [
-                "musty moldy odor throughout", "sewage smell in bathroom", "chemical cleaning smell overwhelming",
-                "previous guests cooking smell lingering", "garbage smell from dumpster outside", "wet carpet smell gross",
-                "cigarette smoke embedded everywhere", "pet odor despite no pets policy", "unidentifiable bad smell can't get rid"
+                "was unpleasant", "from cooking", "musty odor", "needed better ventilation"
             ],
             "hair": [
-                "previous guest hair all over bathroom", "hair in bed sheets disgusting", "clogged drain with hair",
-                "hair on towels and washcloths", "bathroom floor covered in hair", "hair stuck to shower walls",
-                "found hair in supposedly clean linens", "housekeeping obviously didn't clean hair everywhere", "gross hair in sink and tub"
+                "in bathroom", "on towels", "in drain", "from previous guests"
+            ],
+            "breakfast": [
+                "was expensive", "was disappointing", "limited variety", "quality was poor",
+                "room was small", "waiting for tables", "same every day"
             ],
             "bugs": [
-                "cockroaches running across floor", "ants all over bathroom counter", "bed bugs bit us all night",
-                "flies in room food area", "spiders in corners and ceiling", "moths flying around lights",
-                "beetles crawling out of drain", "pest control obviously needed", "insects everywhere disgusting conditions"
+                "in the room", "in bathroom", "need pest control", "quite a problem"
             ],
             "coffee": [
-                "tastes like dirty water", "machine broken doesn't work", "instant coffee only terrible quality",
-                "cold and undrinkable", "limited to one cup per day", "charged extra for decent coffee",
-                "old grounds reused tastes awful", "no cream sugar or supplies", "worst coffee ever tasted"
+                "no facilities in room", "was expensive", "quality was poor", "machine broken"
             ],
             "tea": [
-                "cheap tea bags taste like cardboard", "no variety only basic black tea", "no hot water for tea",
-                "tea bags old and stale", "no honey sugar or milk provided", "charged extra for tea service",
-                "lukewarm water not hot enough", "limited selection poor quality", "tea tastes terrible avoid"
+                "no facilities in room", "was expensive", "limited options", "quality poor"
             ],
             "alcohol": [
-                "watered down drinks taste terrible", "overpriced for poor quality", "limited selection cheap brands only",
-                "bartender doesn't know how make drinks", "charged premium for well drinks", "warm beer not cold",
-                "fake alcohol tastes artificial", "ran out of everything good early", "worst drinks ever tasted"
+                "was overpriced", "limited selection", "quality was poor", "bar closed early"
             ],
             "towels": [
-                "dirty with stains and smells", "thin and scratchy like sandpaper", "not enough towels provided",
-                "holes and tears throughout", "previous guest hair all over", "musty smell like mildew",
-                "changed once during week stay", "tiny hand towels only", "gray and dingy not white"
+                "were old", "were thin", "not enough provided", "were dirty",
+                "needed replacing", "were small"
             ],
             "parking": [
-                "costs more than room ridiculous", "no spaces available ever", "far walk with heavy luggage",
-                "unsafe area car broken into", "tight spaces damaged car door", "not secure anyone can access",
-                "additional charges not mentioned", "valet damaged car no responsibility", "worst parking experience ever"
+                "was expensive", "no spaces available", "was far from hotel",
+                "costs more than room", "difficult to find"
             ],
             "housekeeping": [
-                "never cleaned room entire stay", "staff rude and dismissive", "missed obvious dirt and stains",
-                "took tips but didn't clean properly", "broke items didn't replace", "entered room without permission",
-                "lazy job skipped most cleaning", "used dirty rags made things worse", "worst housekeeping service ever"
+                "entered without permission", "didn't clean properly", "was poor",
+                "didn't come daily", "missed areas"
             ],
             "noise": [
-                "paper thin walls hear everything", "construction starting at 6am", "loud music until 3am",
-                "traffic noise all night no sleep", "neighbors arguing screaming", "plumbing pipes loud banging",
-                "air conditioning rattling noise", "hallway noise echoing into room", "couldn't sleep entire stay"
+                "from next room", "from outside", "construction work nearby",
+                "from main road", "thin walls", "poor soundproofing", "traffic noise",
+                "from other guests", "woke us up early"
             ]
         }
         
