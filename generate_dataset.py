@@ -326,28 +326,28 @@ class HotelReviewDatasetGenerator:
             ]
         }
         
-        # Review structure templates for variety
+        # Review structure templates for variety - realistic like booking.com/tripadvisor
         self.review_structures = [
             "The {aspect} was {problem}",
-            "{aspect} had {problem}",
-            "Poor {aspect} with {problem}",
+            "{aspect} {problem}",
             "Terrible {aspect} - {problem}",
-            "Disappointed with {aspect} that had {problem}",
-            "{aspect} was disappointing with {problem}",
-            "Awful {aspect} suffering from {problem}",
-            "The {aspect} experienced {problem}",
-            "Unacceptable {aspect} with {problem}",
-            "Bad {aspect} featuring {problem}",
-            "{aspect} in poor condition with {problem}",
-            "Horrible {aspect} plagued by {problem}",
-            "The {aspect} was terrible due to {problem}",
-            "{aspect} completely ruined by {problem}",
-            "Disgusting {aspect} with obvious {problem}",
-            "Shocking {aspect} that showed {problem}",
-            "Appalling {aspect} marked by {problem}",
-            "Dreadful {aspect} contaminated with {problem}",
-            "Pathetic {aspect} destroyed by {problem}",
-            "Repulsive {aspect} overwhelmed by {problem}"
+            "Worst {aspect} ever, {problem}",
+            "Avoid this place! {aspect} {problem}",
+            "Disappointed with {aspect} that {problem}",
+            "Never again! {aspect} {problem}",
+            "Don't stay here, {aspect} {problem}",
+            "Awful experience with {aspect} - {problem}",
+            "Disgusting {aspect}, {problem}",
+            "Shocking! {aspect} {problem}",
+            "Can't believe {aspect} {problem}",
+            "Hotel from hell! {aspect} {problem}",
+            "Save your money, {aspect} {problem}",
+            "Nightmare stay - {aspect} {problem}",
+            "Absolutely terrible {aspect} {problem}",
+            "What a joke! {aspect} {problem}",
+            "Worst hotel ever! {aspect} {problem}",
+            "Stay away! {aspect} {problem}",
+            "Total disaster - {aspect} {problem}"
         ]
     
     def generate_review_text(self, aspects, problems):
